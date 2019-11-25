@@ -18,7 +18,6 @@ namespace WebAPI.Models
         public DBModel()
             : base("name=DBModel")
         {
-            base.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -26,6 +25,6 @@ namespace WebAPI.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Empleado> Empleado { get; set; }
+        public virtual DbSet<Employye> Employye { get; set; }
     }
 }

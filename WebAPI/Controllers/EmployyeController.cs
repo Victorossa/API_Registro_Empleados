@@ -12,27 +12,26 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    public class EmpleadoController : ApiController
+    public class EmployyeController : ApiController
     {
         private DBModel db = new DBModel();
 
-        // GET: api/Empleado
-        public IQueryable<Empleado> GetEmpleado()
+        // GET: api/Employye
+        public IQueryable<Employye> GetEmployye()
         {
-            return db.Empleado;
+            return db.Employye;
         }
 
-
-        // PUT: api/Empleado/5
+        // PUT: api/Employye/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutEmpleado(int id, Empleado empleado)
+        public IHttpActionResult PutEmployye(int id, Employye employye)
         {
-            if (id != empleado.EmpleadoID)
+            if (id != employye.EmployeeID)
             {
                 return BadRequest();
             }
 
-            db.Entry(empleado).State = EntityState.Modified;
+            db.Entry(employye).State = EntityState.Modified;
 
             try
             {
@@ -40,7 +39,7 @@ namespace WebAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EmpleadoExists(id))
+                if (!EmployyeExists(id))
                 {
                     return NotFound();
                 }
@@ -53,31 +52,30 @@ namespace WebAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Empleado
-        [ResponseType(typeof(Empleado))]
-        public IHttpActionResult PostEmpleado(Empleado empleado)
+        // POST: api/Employye
+        [ResponseType(typeof(Employye))]
+        public IHttpActionResult PostEmployye(Employye employye)
         {
-            
-            db.Empleado.Add(empleado);
+            db.Employye.Add(employye);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = empleado.EmpleadoID }, empleado);
+            return CreatedAtRoute("DefaultApi", new { id = employye.EmployeeID }, employye);
         }
 
-        // DELETE: api/Empleado/5
-        [ResponseType(typeof(Empleado))]
-        public IHttpActionResult DeleteEmpleado(int id)
+        // DELETE: api/Employye/5
+        [ResponseType(typeof(Employye))]
+        public IHttpActionResult DeleteEmployye(int id)
         {
-            Empleado empleado = db.Empleado.Find(id);
-            if (empleado == null)
+            Employye employye = db.Employye.Find(id);
+            if (employye == null)
             {
                 return NotFound();
             }
 
-            db.Empleado.Remove(empleado);
+            db.Employye.Remove(employye);
             db.SaveChanges();
 
-            return Ok(empleado);
+            return Ok(employye);
         }
 
         protected override void Dispose(bool disposing)
@@ -89,9 +87,9 @@ namespace WebAPI.Controllers
             base.Dispose(disposing);
         }
 
-        private bool EmpleadoExists(int id)
+        private bool EmployyeExists(int id)
         {
-            return db.Empleado.Count(e => e.EmpleadoID == id) > 0;
+            return db.Employye.Count(e => e.EmployeeID == id) > 0;
         }
     }
 }

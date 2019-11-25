@@ -12,12 +12,12 @@ namespace WebAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Empleado
+    public partial class Employye
     {
-        public int EmpleadoID { get; set; }
-        public string NombreCompleto { get; set; }
-        public string EMPCodigo { get; set; }
-        public string Movil { get; set; }
-        public string Posicion { get; set; }
+        public int EmployeeID { get; set; }
+        public string FullName { get; set; }
+        public string EMPCode { get; set; }
+        public string Mobile { get; set; }
+        public string Position { get; set; }
     }
 }
